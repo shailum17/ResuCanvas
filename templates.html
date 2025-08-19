@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ResuCanvas — Templates</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/base.css" />
+  <style>
+    body { padding: 24px; }
+    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+    .card.tmpl { cursor: pointer; user-select: none; transition: transform .2s ease, box-shadow .2s ease; }
+    .card.tmpl:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0,0,0,.08); }
+    .thumb { aspect-ratio: 3/4; background: #fff; border: 1px solid var(--border); border-radius: 12px; margin-bottom: 10px; display:flex; align-items:center; justify-content:center; color:#6b7280; }
+  </style>
+</head>
+<body>
+  <header class="panel" style="display:flex; align-items:center; justify-content:space-between;">
+    <h2 style="margin:0">Choose a template</h2>
+    <a class="btn" href="index.html">Back</a>
+  </header>
+
+  <main class="gallery">
+    <div class="card tmpl" data-theme="modern">
+      <div class="thumb">Modern</div>
+      <strong>Modern</strong>
+      <p class="hint">Serif name, rounded tags</p>
+    </div>
+    <div class="card tmpl" data-theme="minimal">
+      <div class="thumb">Minimal</div>
+      <strong>Minimal</strong>
+      <p class="hint">Sans headings, subtle accents</p>
+    </div>
+    <div class="card tmpl" data-theme="compact">
+      <div class="thumb">Compact</div>
+      <strong>Compact</strong>
+      <p class="hint">Denser layout for more content</p>
+    </div>
+  </main>
+
+  <script>
+    const STORAGE_KEY = 'resumeState';
+    function setTheme(theme){
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY) || '{}';
+        const obj = JSON.parse(raw);
+        obj.theme = theme;
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(obj));
+      } catch (e) {}
+    }
+    document.querySelectorAll('.tmpl').forEach(card => {
+      card.addEventListener('click', ()=>{
+        const theme = card.getAttribute('data-theme');
+        setTheme(theme);
+        window.location.href = 'index.html';
+      });
+    });
+  </script>
+</body>
+</html>
+
+

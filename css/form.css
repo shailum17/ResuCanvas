@@ -1,0 +1,23 @@
+.toolbar { margin-bottom: 10px; }
+.toolbar .btn { font-size: .95rem; }
+
+button, .btn, .field input, .field textarea {
+  transition: box-shadow .2s, transform .2s, background-color .2s;
+}
+button:hover { transform: translateY(-1px); }
+button:focus-visible, .btn:focus-visible, input:focus-visible, textarea:focus-visible { outline: 3px solid rgba(93,135,255,.35); outline-offset: 2px; }
+
+.danger { background: var(--danger); color: #fff; border: none; }
+
+.row-flex { display: flex; gap: 8px; align-items: center; }
+
+.edu-row .two, .exp-row .two { margin-bottom: 8px; }
+
+/* subtle appear for preview sections */
+.preview-panel section { animation: fade-in-up .25s ease both; }
+.preview-panel section:nth-child(1) { animation-delay: .02s; }
+.preview-panel section:nth-child(2) { animation-delay: .04s; }
+.preview-panel section:nth-child(3) { animation-delay: .06s; }
+.preview-panel section:nth-child(4) { animation-delay: .08s; }
+
+

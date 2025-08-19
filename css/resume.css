@@ -1,0 +1,35 @@
+.resume { font-family: Inter, system-ui, sans-serif; color: #111827; }
+.resume-header h1 { font-family: "Source Serif 4", Georgia, serif; font-size: 2rem; margin: 0; }
+.resume-header p { margin: 0; color: #6b7280; }
+
+.resume h2 { font-size: 1rem; text-transform: uppercase; letter-spacing: .08em; color: #374151; margin: 18px 0 8px; }
+
+.resume .tags { list-style: none; padding: 0; margin: 0; }
+.resume .tags li { display: inline-block; padding: 6px 10px; border-radius: 999px; background: #eef2ff; margin: 4px 6px 0 0; }
+
+.resume .row { display: grid; grid-template-columns: 1fr auto; gap: 6px 12px; padding: 10px 0; border-bottom: 1px dashed #e5e7eb; }
+.resume .row .left strong { font-weight: 700; }
+.resume .row .sub { grid-column: 1 / -1; color: #6b7280; }
+.resume ul { margin: 6px 0 0 18px; }
+
+@media print {
+  .resume { font-size: 12pt; }
+  .resume-header h1 { font-size: 22pt; }
+}
+
+/* Themes */
+.resume.theme-modern {}
+
+.resume.theme-minimal {
+  --accent: #111827;
+}
+.resume.theme-minimal .resume-header h1 { font-family: Inter, system-ui, sans-serif; letter-spacing: -0.02em; }
+.resume.theme-minimal .tags li { background: #f3f4f6; }
+
+.resume.theme-compact {
+  font-size: 0.95rem;
+}
+.resume.theme-compact .resume-header h1 { font-size: 1.6rem; }
+
+
+
