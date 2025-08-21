@@ -14,6 +14,7 @@
 }
 
 * { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 html, body { height: 100%; }
 body {
   margin: 0;
@@ -104,6 +105,21 @@ body {
 .collapsible .content > * { min-height: 0; }
 
 @keyframes fade-in-up { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+/* Utility Classes */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.mb-0 { margin-bottom: 0; }
+.mb-1 { margin-bottom: var(--space); }
+.mb-2 { margin-bottom: calc(var(--space) * 2); }
+.mb-3 { margin-bottom: calc(var(--space) * 3); }
+
+.mt-0 { margin-top: 0; }
+.mt-1 { margin-top: var(--space); }
+.mt-2 { margin-top: calc(var(--space) * 2); }
+.mt-3 { margin-top: calc(var(--space) * 3); }
 
 .preview-panel .resume { box-shadow: var(--shadow); border-radius: var(--radius); background: #fff; padding: 24px; }
 

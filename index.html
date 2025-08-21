@@ -10,112 +10,366 @@
   <link rel="stylesheet" href="./css/base.css" />
   <link rel="stylesheet" href="./css/form.css" />
   <link rel="stylesheet" href="./css/resume.css" />
+  <link rel="stylesheet" href="./css/landing.css" />
 </head>
 <body>
-  <main class="grid">
-    <section class="panel form-panel">
-      <header class="toolbar">
-        <button id="btn-clear" class="btn secondary" type="button" title="Clear all data">Clear</button>
-        <div class="progress" aria-label="Form completion">
-          <div id="progress-bar"></div>
-        </div>
-        <a href="templates.html" class="btn" title="Choose template">Templates</a>
-        <button id="btn-export" class="btn primary" type="button" title="Export as PDF">Export PDF</button>
-      </header>
+  <!-- Header -->
+  <header class="main-header">
+    <div class="header-container">
+      <div class="logo">
+        <h1>ResuCanvas</h1>
+        <span class="tagline">Interactive Resume Builder</span>
+      </div>
+      <nav class="main-nav">
+        <a href="#features">Features</a>
+        <a href="#templates">Templates</a>
+        <a href="#about">About</a>
+        <a href="#resume-builder" class="btn btn-primary">Start Building</a>
+      </nav>
+    </div>
+  </header>
 
-      <form id="resume-form" novalidate>
-        <div class="group">
-          <div class="group-head"><h3>Contact</h3></div>
-          <div class="field">
-            <label for="name">Name</label>
-            <input id="name" name="name" autocomplete="name" required />
-            <small class="error" id="err-name" aria-live="polite"></small>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-container">
+      <div class="hero-content">
+        <h2 class="hero-title">Create Professional Resumes in Minutes</h2>
+        <p class="hero-subtitle">Build beautiful, ATS-friendly resumes with our interactive builder. No design skills needed.</p>
+        <div class="hero-actions">
+          <a href="#resume-builder" class="btn btn-primary btn-large">Start Building Now</a>
+          <a href="templates.html" class="btn btn-secondary btn-large">View Templates</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-number">10+</span>
+            <span class="stat-label">Professional Templates</span>
           </div>
-          <div class="two">
-            <div class="field">
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" autocomplete="email" />
-              <small class="error" id="err-email" aria-live="polite"></small>
-            </div>
-            <div class="field">
-              <label for="phone">Phone</label>
-              <input id="phone" name="phone" inputmode="tel" autocomplete="tel" />
-              <small class="error" id="err-phone" aria-live="polite"></small>
-            </div>
+          <div class="stat">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">ATS Optimized</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">Free</span>
+            <span class="stat-label">Forever</span>
           </div>
         </div>
-
-        <div class="group collapsible" id="grp-summary">
-          <div class="group-head"><h3><span class="chev">▾</span> Profile Summary</h3></div>
-          <div class="content">
-            <div>
-              <div class="field">
-                <label for="summary" class="sr-only">Profile Summary</label>
-                <textarea id="summary" rows="4" maxlength="800" placeholder="A short professional summary..."></textarea>
+      </div>
+      <div class="hero-visual">
+        <div class="resume-preview">
+          <div class="preview-header">
+            <h3>John Doe</h3>
+            <p>Software Engineer</p>
+          </div>
+          <div class="preview-content">
+            <div class="preview-section">
+              <h4>Experience</h4>
+              <p>5+ years building scalable web applications</p>
+            </div>
+            <div class="preview-section">
+              <h4>Skills</h4>
+              <div class="skill-tags">
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">React</span>
+                <span class="skill-tag">Node.js</span>
               </div>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="group collapsible" id="grp-skills">
-          <div class="group-head"><h3><span class="chev">▾</span> Skills</h3></div>
-          <div class="content">
-            <div>
-              <div class="field">
-                <label for="skill-entry" class="sr-only">Add Skill</label>
-                <div id="skills-input" class="chips-input" role="listbox" aria-label="Skills"></div>
-                <input id="skill-entry" placeholder="Type a skill and press Enter" aria-describedby="skills-help" />
-                <small id="skills-help" class="hint">Press Enter or comma to add. Click a chip or focus and press Delete to remove.</small>
-              </div>
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="container">
+      <h2 class="section-title">About ResuCanvas</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <p class="about-lead">ResuCanvas was created with a simple mission: to make professional resume building accessible to everyone.</p>
+          <p>In today's competitive job market, having a well-designed, ATS-friendly resume is crucial. Our interactive builder eliminates the need for design skills while ensuring your resume passes through Applicant Tracking Systems.</p>
+          <p>Whether you're a recent graduate, career changer, or experienced professional, our templates and tools help you create resumes that get noticed by hiring managers.</p>
+        </div>
+        <div class="about-stats">
+          <div class="about-stat">
+            <span class="about-stat-number">1000+</span>
+            <span class="about-stat-label">Resumes Created</span>
+          </div>
+          <div class="about-stat">
+            <span class="about-stat-number">95%</span>
+            <span class="about-stat-label">Success Rate</span>
+          </div>
+          <div class="about-stat">
+            <span class="about-stat-number">24/7</span>
+            <span class="about-stat-label">Available</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="features">
+    <div class="container">
+      <h2 class="section-title">Why Choose ResuCanvas?</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🎨</div>
+          <h3>Beautiful Templates</h3>
+          <p>Choose from professionally designed templates that make your resume stand out.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📱</div>
+          <h3>Real-time Preview</h3>
+          <p>See changes instantly as you type. No more guessing how your resume will look.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔍</div>
+          <h3>ATS Optimized</h3>
+          <p>Our templates are designed to pass Applicant Tracking Systems with flying colors.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>Lightning Fast</h3>
+          <p>Build your resume in minutes, not hours. Export to PDF instantly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials">
+    <div class="container">
+      <h2 class="section-title">What Our Users Say</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <p>"ResuCanvas helped me create a professional resume in just 15 minutes. I got my dream job within a week!"</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar">👩‍💼</div>
+            <div class="author-info">
+              <h4>Sarah Johnson</h4>
+              <span>Marketing Manager</span>
             </div>
           </div>
         </div>
-
-        <div class="group">
-          <div class="group-head">
-            <h3>Education</h3>
-            <button type="button" id="add-edu" class="btn">Add</button>
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <p>"The ATS optimization feature is incredible. My resume now gets through every screening system."</p>
           </div>
-          <div id="education-list"></div>
-        </div>
-
-        <div class="group">
-          <div class="group-head">
-            <h3>Experience</h3>
-            <button type="button" id="add-exp" class="btn">Add</button>
+          <div class="testimonial-author">
+            <div class="author-avatar">👨‍💻</div>
+            <div class="author-info">
+              <h4>Mike Chen</h4>
+              <span>Software Engineer</span>
+            </div>
           </div>
-          <div id="experience-list"></div>
         </div>
-      </form>
-    </section>
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <p>"Finally, a resume builder that doesn't require design skills. Clean, professional results every time."</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar">👩‍🎓</div>
+            <div class="author-info">
+              <h4>Emily Rodriguez</h4>
+              <span>Recent Graduate</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <section class="panel preview-panel">
-      <article id="resume" class="resume a4" aria-label="Resume Preview">
-        <header class="resume-header">
-          <h1 id="pv-name">Your Name</h1>
-          <p id="pv-contact">email • phone</p>
+  <!-- Templates Section -->
+  <section id="templates" class="templates">
+    <div class="container">
+      <h2 class="section-title">Professional Resume Templates</h2>
+      <p class="section-subtitle">Choose from our collection of ATS-optimized templates designed to help you stand out</p>
+      <div class="templates-grid">
+        <div class="template-card">
+          <div class="template-preview">
+            <div class="template-thumb">Modern</div>
+          </div>
+          <h3>Modern</h3>
+          <p>Clean serif typography with rounded skill tags</p>
+          <a href="templates.html" class="btn btn-primary">Use Template</a>
+        </div>
+        <div class="template-card">
+          <div class="template-preview">
+            <div class="template-thumb">Minimal</div>
+          </div>
+          <h3>Minimal</h3>
+          <p>Sans-serif headings with subtle accent colors</p>
+          <a href="templates.html" class="btn btn-primary">Use Template</a>
+        </div>
+        <div class="template-card">
+          <div class="template-preview">
+            <div class="template-thumb">Compact</div>
+          </div>
+          <h3>Compact</h3>
+          <p>Dense layout perfect for content-heavy resumes</p>
+          <a href="templates.html" class="btn btn-primary">Use Template</a>
+        </div>
+      </div>
+      <div class="templates-cta">
+        <a href="templates.html" class="btn btn-secondary btn-large">View All Templates</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <h2 class="section-title">Ready to Build Your Professional Resume?</h2>
+      <p class="section-subtitle">Join thousands of job seekers who have already created winning resumes with ResuCanvas</p>
+      <div class="cta-actions">
+        <a href="#resume-builder" class="btn btn-primary btn-large">Start Building Now</a>
+        <a href="templates.html" class="btn btn-secondary btn-large">Browse Templates</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resume Builder Section -->
+  <section id="resume-builder" class="resume-builder">
+    <div class="container">
+      <h2 class="section-title">Build Your Resume</h2>
+      <p class="section-subtitle">Fill out the form below and see your resume update in real-time</p>
+    </div>
+    
+    <main class="grid">
+      <section class="panel form-panel">
+        <header class="toolbar">
+          <button id="btn-clear" class="btn secondary" type="button" title="Clear all data">Clear</button>
+          <div class="progress" aria-label="Form completion">
+            <div id="progress-bar"></div>
+          </div>
+          <a href="templates.html" class="btn" title="Choose template">Templates</a>
+          <button id="btn-export" class="btn primary" type="button" title="Export as PDF">Export PDF</button>
         </header>
-        <section>
-          <h2>Profile</h2>
-          <p id="pv-summary">A short professional summary appears here.</p>
-        </section>
-        <section>
-          <h2>Skills</h2>
-          <ul id="pv-skills" class="tags"><li>—</li></ul>
-        </section>
-        <section>
-          <h2>Education</h2>
-          <div id="pv-education"><em>No education added yet.</em></div>
-        </section>
-        <section>
-          <h2>Experience</h2>
-          <div id="pv-experience"><em>No experience added yet.</em></div>
-        </section>
-      </article>
-    </section>
-  </main>
+
+        <form id="resume-form" novalidate>
+          <div class="group">
+            <div class="group-head"><h3>Contact</h3></div>
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" name="name" autocomplete="name" required />
+              <small class="error" id="err-name" aria-live="polite"></small>
+            </div>
+            <div class="two">
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" autocomplete="email" />
+                <small class="error" id="err-email" aria-live="polite"></small>
+              </div>
+              <div class="field">
+                <label for="phone">Phone</label>
+                <input id="phone" name="phone" inputmode="tel" autocomplete="tel" />
+                <small class="error" id="err-phone" aria-live="polite"></small>
+              </div>
+            </div>
+          </div>
+
+          <div class="group collapsible" id="grp-summary">
+            <div class="group-head"><h3><span class="chev">▾</span> Profile Summary</h3></div>
+            <div class="content">
+              <div>
+                <div class="field">
+                  <label for="summary" class="sr-only">Profile Summary</label>
+                  <textarea id="summary" rows="4" maxlength="800" placeholder="A short professional summary..."></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="group collapsible" id="grp-skills">
+            <div class="group-head"><h3><span class="chev">▾</span> Skills</h3></div>
+            <div class="content">
+              <div>
+                <div class="field">
+                  <label for="skill-entry" class="sr-only">Add Skill</label>
+                  <div id="skills-input" class="chips-input" role="listbox" aria-label="Skills"></div>
+                  <input id="skill-entry" placeholder="Type a skill and press Enter" aria-describedby="skills-help" />
+                  <small id="skills-help" class="hint">Press Enter or comma to add. Click a chip or focus and press Delete to remove.</small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="group-head">
+              <h3>Education</h3>
+              <button type="button" id="add-edu" class="btn">Add</button>
+            </div>
+            <div id="education-list"></div>
+          </div>
+
+          <div class="group">
+            <div class="group-head">
+              <h3>Experience</h3>
+              <button type="button" id="add-exp" class="btn">Add</button>
+            </div>
+            <div id="experience-list"></div>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel preview-panel">
+        <article id="resume" class="resume a4" aria-label="Resume Preview">
+          <header class="resume-header">
+            <h1 id="pv-name">Your Name</h1>
+            <p id="pv-contact">email • phone</p>
+          </header>
+          <section>
+            <h2>Profile</h2>
+            <p id="pv-summary">A short professional summary appears here.</p>
+          </section>
+          <section>
+            <h2>Skills</h2>
+            <ul id="pv-skills" class="tags"><li>—</li></ul>
+          </section>
+          <section>
+            <h2>Education</h2>
+            <div id="pv-education"><em>No education added yet.</em></div>
+          </section>
+          <section>
+            <h2>Experience</h2>
+            <div id="pv-experience"><em>No experience added yet.</em></div>
+          </section>
+        </article>
+      </section>
+    </main>
+  </section>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>ResuCanvas</h3>
+          <p>Building better resumes, one template at a time.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <a href="#features">Features</a>
+          <a href="templates.html">Templates</a>
+          <a href="#resume-builder">Builder</a>
+        </div>
+        <div class="footer-section">
+          <h4>Resources</h4>
+          <a href="#about">About</a>
+          <a href="LICENSE">License</a>
+          <a href="README.md">Documentation</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 ResuCanvas. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
 
   <script type="module" src="./js/bindings.js"></script>
+  <script src="./js/landing.js"></script>
 </body>
 </html>
 

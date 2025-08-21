@@ -8,8 +8,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/base.css" />
+  <link rel="stylesheet" href="./css/landing.css" />
   <style>
-    body { padding: 24px; }
     .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
     .card.tmpl { cursor: pointer; user-select: none; transition: transform .2s ease, box-shadow .2s ease; }
     .card.tmpl:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0,0,0,.08); }
@@ -17,10 +17,27 @@
   </style>
 </head>
 <body>
-  <header class="panel" style="display:flex; align-items:center; justify-content:space-between;">
-    <h2 style="margin:0">Choose a template</h2>
-    <a class="btn" href="index.html">Back</a>
+  <!-- Header -->
+  <header class="main-header">
+    <div class="header-container">
+      <div class="logo">
+        <h1>ResuCanvas</h1>
+        <span class="tagline">Interactive Resume Builder</span>
+      </div>
+      <nav class="main-nav">
+        <a href="index.html#features">Features</a>
+        <a href="index.html#templates">Templates</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#resume-builder" class="btn btn-primary">Start Building</a>
+      </nav>
+    </div>
   </header>
+
+  <div class="container" style="padding-top: 100px;">
+    <header class="panel" style="display:flex; align-items:center; justify-content:space-between;">
+      <h2 style="margin:0">Choose a template</h2>
+      <a class="btn" href="index.html">Back to Builder</a>
+    </header>
 
   <main class="gallery">
     <div class="card tmpl" data-theme="modern">
@@ -39,6 +56,7 @@
       <p class="hint">Denser layout for more content</p>
     </div>
   </main>
+  </div>
 
   <script>
     const STORAGE_KEY = 'resumeState';
@@ -54,7 +72,7 @@
       card.addEventListener('click', ()=>{
         const theme = card.getAttribute('data-theme');
         setTheme(theme);
-        window.location.href = 'index.html';
+        window.location.href = 'index.html#resume-builder';
       });
     });
   </script>
