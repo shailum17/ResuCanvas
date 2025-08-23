@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./css/base.css" />
   <link rel="stylesheet" href="./css/form.css" />
   <link rel="stylesheet" href="./css/resume.css" />
@@ -22,9 +23,9 @@
       </div>
       <nav class="main-nav">
         <a href="#features">Features</a>
-        <a href="#templates">Templates</a>
+        <a href="templates.html">Templates</a>
         <a href="#about">About</a>
-        <a href="#resume-builder" class="btn btn-primary">Start Building</a>
+        <a href="builder.html" class="btn btn-primary">Start Building</a>
       </nav>
     </div>
   </header>
@@ -36,7 +37,7 @@
         <h2 class="hero-title">Create Professional Resumes in Minutes</h2>
         <p class="hero-subtitle">Build beautiful, ATS-friendly resumes with our interactive builder. No design skills needed.</p>
         <div class="hero-actions">
-          <a href="#resume-builder" class="btn btn-primary btn-large">Start Building Now</a>
+          <a href="builder.html" class="btn btn-primary btn-large">Start Building Now</a>
           <a href="templates.html" class="btn btn-secondary btn-large">View Templates</a>
         </div>
         <div class="hero-stats">
@@ -178,6 +179,7 @@
           </div>
         </div>
       </div>
+
     </div>
   </section>
 
@@ -224,121 +226,10 @@
       <h2 class="section-title">Ready to Build Your Professional Resume?</h2>
       <p class="section-subtitle">Join thousands of job seekers who have already created winning resumes with ResuCanvas</p>
       <div class="cta-actions">
-        <a href="#resume-builder" class="btn btn-primary btn-large">Start Building Now</a>
+        <a href="builder.html" class="btn btn-primary btn-large">Start Building Now</a>
         <a href="templates.html" class="btn btn-secondary btn-large">Browse Templates</a>
       </div>
     </div>
-  </section>
-
-  <!-- Resume Builder Section -->
-  <section id="resume-builder" class="resume-builder">
-    <div class="container">
-      <h2 class="section-title">Build Your Resume</h2>
-      <p class="section-subtitle">Fill out the form below and see your resume update in real-time</p>
-    </div>
-    
-    <main class="grid">
-      <section class="panel form-panel">
-        <header class="toolbar">
-          <button id="btn-clear" class="btn secondary" type="button" title="Clear all data">Clear</button>
-          <div class="progress" aria-label="Form completion">
-            <div id="progress-bar"></div>
-          </div>
-          <a href="templates.html" class="btn" title="Choose template">Templates</a>
-          <button id="btn-export" class="btn primary" type="button" title="Export as PDF">Export PDF</button>
-        </header>
-
-        <form id="resume-form" novalidate>
-          <div class="group">
-            <div class="group-head"><h3>Contact</h3></div>
-            <div class="field">
-              <label for="name">Name</label>
-              <input id="name" name="name" autocomplete="name" required />
-              <small class="error" id="err-name" aria-live="polite"></small>
-            </div>
-            <div class="two">
-              <div class="field">
-                <label for="email">Email</label>
-                <input id="email" name="email" type="email" autocomplete="email" />
-                <small class="error" id="err-email" aria-live="polite"></small>
-              </div>
-              <div class="field">
-                <label for="phone">Phone</label>
-                <input id="phone" name="phone" inputmode="tel" autocomplete="tel" />
-                <small class="error" id="err-phone" aria-live="polite"></small>
-              </div>
-            </div>
-          </div>
-
-          <div class="group collapsible" id="grp-summary">
-            <div class="group-head"><h3><span class="chev">▾</span> Profile Summary</h3></div>
-            <div class="content">
-              <div>
-                <div class="field">
-                  <label for="summary" class="sr-only">Profile Summary</label>
-                  <textarea id="summary" rows="4" maxlength="800" placeholder="A short professional summary..."></textarea>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="group collapsible" id="grp-skills">
-            <div class="group-head"><h3><span class="chev">▾</span> Skills</h3></div>
-            <div class="content">
-              <div>
-                <div class="field">
-                  <label for="skill-entry" class="sr-only">Add Skill</label>
-                  <div id="skills-input" class="chips-input" role="listbox" aria-label="Skills"></div>
-                  <input id="skill-entry" placeholder="Type a skill and press Enter" aria-describedby="skills-help" />
-                  <small id="skills-help" class="hint">Press Enter or comma to add. Click a chip or focus and press Delete to remove.</small>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="group">
-            <div class="group-head">
-              <h3>Education</h3>
-              <button type="button" id="add-edu" class="btn">Add</button>
-            </div>
-            <div id="education-list"></div>
-          </div>
-
-          <div class="group">
-            <div class="group-head">
-              <h3>Experience</h3>
-              <button type="button" id="add-exp" class="btn">Add</button>
-            </div>
-            <div id="experience-list"></div>
-          </div>
-        </form>
-      </section>
-
-      <section class="panel preview-panel">
-        <article id="resume" class="resume a4" aria-label="Resume Preview">
-          <header class="resume-header">
-            <h1 id="pv-name">Your Name</h1>
-            <p id="pv-contact">email • phone</p>
-          </header>
-          <section>
-            <h2>Profile</h2>
-            <p id="pv-summary">A short professional summary appears here.</p>
-          </section>
-          <section>
-            <h2>Skills</h2>
-            <ul id="pv-skills" class="tags"><li>—</li></ul>
-          </section>
-          <section>
-            <h2>Education</h2>
-            <div id="pv-education"><em>No education added yet.</em></div>
-          </section>
-          <section>
-            <h2>Experience</h2>
-            <div id="pv-experience"><em>No experience added yet.</em></div>
-          </section>
-        </article>
-      </section>
-    </main>
   </section>
 
   <!-- Footer -->
@@ -353,7 +244,7 @@
           <h4>Quick Links</h4>
           <a href="#features">Features</a>
           <a href="templates.html">Templates</a>
-          <a href="#resume-builder">Builder</a>
+          <a href="builder.html">Builder</a>
         </div>
         <div class="footer-section">
           <h4>Resources</h4>

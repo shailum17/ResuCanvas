@@ -13,6 +13,239 @@ button:focus-visible, .btn:focus-visible, input:focus-visible, textarea:focus-vi
 
 .edu-row .two, .exp-row .two { margin-bottom: 8px; }
 
+/* Personal Details Section */
+.group-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.form-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.form-actions .btn {
+  font-size: 0.85rem;
+  padding: 0.4rem 0.8rem;
+}
+
+/* Photo Upload */
+.photo-field {
+  margin-bottom: 1.5rem;
+}
+
+.photo-upload {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.photo-placeholder {
+  width: 80px;
+  height: 80px;
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: #999;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.photo-placeholder:hover {
+  border-color: #007bff;
+}
+
+/* Job Position Field */
+.job-position-field {
+  margin-bottom: 1rem;
+}
+
+.field-toggle {
+  margin-top: 0.5rem;
+}
+
+/* Toggle Switch */
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.toggle input[type="checkbox"] {
+  display: none;
+}
+
+.toggle-slider {
+  width: 40px;
+  height: 20px;
+  background-color: #ccc;
+  border-radius: 20px;
+  position: relative;
+  transition: background-color 0.2s;
+}
+
+.toggle-slider::before {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: white;
+  top: 2px;
+  left: 2px;
+  transition: transform 0.2s;
+}
+
+.toggle input[type="checkbox"]:checked + .toggle-slider {
+  background-color: #007bff;
+}
+
+.toggle input[type="checkbox"]:checked + .toggle-slider::before {
+  transform: translateX(20px);
+}
+
+/* Additional Fields */
+.additional-fields {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+}
+
+.field-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.add-field-btn, .add-optional-section {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+  color: #495057;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.add-field-btn:hover, .add-optional-section:hover {
+  background: #e9ecef;
+  border-color: #adb5bd;
+}
+
+/* Section Headers */
+.add-section-btn {
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-section-btn:hover {
+  background: #0056b3;
+}
+
+/* Optional Sections */
+.optional-sections {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 2px solid #eee;
+}
+
+.section-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.section-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* Form Footer */
+.form-footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 2px solid #eee;
+  text-align: center;
+}
+
+.btn.large {
+  padding: 0.75rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* Resume Preview Styles */
+.resume-header {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #eee;
+}
+
+.header-photo .photo-preview {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+}
+
+.header-info {
+  flex: 1;
+}
+
+.job-title {
+  color: #6c757d;
+  font-size: 1.1rem;
+  margin: 0.25rem 0;
+}
+
+.contact-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+.additional-info {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: #6c757d;
+}
+
+.resume-section {
+  margin-bottom: 1.5rem;
+}
+
+.resume-section h2 {
+  color: #495057;
+  border-bottom: 1px solid #dee2e6;
+  padding-bottom: 0.25rem;
+  margin-bottom: 0.75rem;
+}
+
 /* subtle appear for preview sections */
 .preview-panel section { animation: fade-in-up .25s ease both; }
 .preview-panel section:nth-child(1) { animation-delay: .02s; }

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Build Your Resume | ResuCanvas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/form.css" />
+  <link rel="stylesheet" href="/css/resume.css" />
+  <link rel="stylesheet" href="/css/builder.css" />
+  <link rel="stylesheet" href="/css/landing.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="main-header">
+    <div class="header-container">
+      <div class="logo">
+        <h1>ResuCanvas</h1>
+        <span class="tagline">Interactive Resume Builder</span>
+      </div>
+      <nav class="main-nav">
+        <a href="index.html#features">Features</a>
+        <a href="templates.html">Templates</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html" class="btn btn-primary">Back to Home</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Resume Builder Section -->
+  <section class="resume-builder">
+    <div class="container">
+      <h1 class="section-title">Build Your Resume</h1>
+      <p class="section-subtitle">Fill out the form below and see your resume update in real-time</p>
+    </div>
+
+    <main class="builder-container">
+      <section class="panel form-panel">
+        <header class="toolbar">
+          <button id="btn-clear" class="btn secondary" type="button" title="Clear all data">Clear</button>
+          <div class="progress" aria-label="Form completion">
+            <div id="progress-bar"></div>
+            <span id="progress-text">0%</span>
+          </div>
+          <button id="btn-export" class="btn primary" type="button" title="Export to PDF">
+            <span class="btn-icon">↓</span> Export PDF
+          </button>
+        </header>
+        
+        <form id="resume-form" novalidate>
+          <div class="group">
+            <div class="group-head">
+              <h3>Personal details</h3>
+              <div class="form-actions">
+                <button type="button" class="btn-icon" id="toggle-personal" title="Toggle section">+</button>
+              </div>
+            </div>
+            <div class="content">
+              <div class="field">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="John Doe" required>
+              </div>
+              <div class="field">
+                <label for="title">Professional Title</label>
+                <input type="text" id="title" name="title" placeholder="e.g., Software Engineer">
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="your.email@example.com">
+              </div>
+              <div class="field">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone" placeholder="(123) 456-7890">
+              </div>
+              <div class="field">
+                <label for="location">Location</label>
+                <input type="text" id="location" name="location" placeholder="City, Country">
+              </div>
+              <div class="field">
+                <label for="website">Website/Portfolio</label>
+                <input type="url" id="website" name="website" placeholder="https://">
+              </div>
+              <div class="field">
+                <label for="linkedin">LinkedIn</label>
+                <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/username">
+              </div>
+              <div class="field">
+                <label for="github">GitHub</label>
+                <input type="url" id="github" name="github" placeholder="https://github.com/username">
+              </div>
+            </div>
+          </div>
+
+          <div class="group collapsible" id="grp-summary">
+            <div class="group-head"><h3><span class="chev">▾</span> Profile Summary</h3></div>
+            <div class="content">
+              <div>
+                <div class="field">
+                  <label for="summary">Professional Summary</label>
+                  <textarea id="summary" name="summary" rows="4" placeholder="A brief summary of your professional background and skills..."></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="group collapsible" id="grp-experience">
+            <div class="group-head">
+              <h3><span class="chev">▾</span> Work Experience</h3>
+              <button type="button" class="btn-icon add-btn" id="add-experience" title="Add experience">+</button>
+            </div>
+            <div class="content" id="experience-container">
+              <!-- Experience entries will be added here dynamically -->
+              <div class="experience-entry">
+                <div class="field">
+                  <label>Job Title</label>
+                  <input type="text" name="jobTitle[]" placeholder="Senior Developer">
+                </div>
+                <div class="field">
+                  <label>Company</label>
+                  <input type="text" name="company[]" placeholder="Tech Corp">
+                </div>
+                <div class="field-group">
+                  <div class="field">
+                    <label>Start Date</label>
+                    <input type="text" name="startDate[]" placeholder="MM/YYYY">
+                  </div>
+                  <div class="field">
+                    <label>End Date</label>
+                    <input type="text" name="endDate[]" placeholder="Present or MM/YYYY">
+                  </div>
+                </div>
+                <div class="field">
+                  <label>Description</label>
+                  <textarea name="jobDescription[]" rows="3" placeholder="Key responsibilities and achievements..."></textarea>
+                </div>
+                <button type="button" class="btn-text remove-btn">Remove</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="group collapsible" id="grp-education">
+            <div class="group-head">
+              <h3><span class="chev">▾</span> Education</h3>
+              <button type="button" class="btn-icon add-btn" id="add-education" title="Add education">+</button>
+            </div>
+            <div class="content" id="education-container">
+              <!-- Education entries will be added here dynamically -->
+              <div class="education-entry">
+                <div class="field">
+                  <label>Degree</label>
+                  <input type="text" name="degree[]" placeholder="e.g., B.S. in Computer Science">
+                </div>
+                <div class="field">
+                  <label>Institution</label>
+                  <input type="text" name="institution[]" placeholder="University Name">
+                </div>
+                <div class="field-group">
+                  <div class="field">
+                    <label>Start Date</label>
+                    <input type="text" name="eduStartDate[]" placeholder="MM/YYYY">
+                  </div>
+                  <div class="field">
+                    <label>End Date</label>
+                    <input type="text" name="eduEndDate[]" placeholder="Present or MM/YYYY">
+                  </div>
+                </div>
+                <button type="button" class="btn-text remove-btn">Remove</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="group collapsible" id="grp-skills">
+            <div class="group-head">
+              <h3><span class="chev">▾</span> Skills</h3>
+            </div>
+            <div class="content">
+              <div id="skills-container">
+                <!-- Skills will be added here dynamically -->
+                <div class="field">
+                  <label>Add Skills (comma separated)</label>
+                  <input type="text" id="skills-input" placeholder="e.g., JavaScript, React, Project Management">
+                </div>
+                <div id="skills-tags"></div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </section>
+
+      <section class="preview-panel">
+        <article id="resume" class="resume a4" aria-label="Resume Preview">
+          <header class="resume-header">
+            <div class="name-title">
+              <h1 id="resume-name">Your Name</h1>
+              <h2 id="resume-title">Professional Title</h2>
+            </div>
+            <div class="contact-info">
+              <div id="resume-email" class="contact-item">
+                <span class="icon">✉️</span>
+                <span>your.email@example.com</span>
+              </div>
+              <div id="resume-phone" class="contact-item">
+                <span class="icon">📱</span>
+                <span>(123) 456-7890</span>
+              </div>
+              <div id="resume-location" class="contact-item">
+                <span class="icon">📍</span>
+                <span>City, Country</span>
+              </div>
+              <div id="resume-website" class="contact-item">
+                <span class="icon">🌐</span>
+                <span>yourwebsite.com</span>
+              </div>
+              <div id="resume-linkedin" class="contact-item">
+                <span class="icon">🔗</span>
+                <span>linkedin.com/in/username</span>
+              </div>
+              <div id="resume-github" class="contact-item">
+                <span class="icon">💻</span>
+                <span>github.com/username</span>
+              </div>
+            </div>
+          </header>
+
+          <section class="resume-section">
+            <h3>Profile</h3>
+            <div class="section-content">
+              <p id="resume-summary">A brief professional summary highlighting your experience, skills, and career goals.</p>
+            </div>
+          </section>
+
+          <section class="resume-section">
+            <h3>Experience</h3>
+            <div class="section-content" id="resume-experience">
+              <div class="experience-entry">
+                <div class="experience-header">
+                  <h4>Job Title</h4>
+                  <span class="date">Start Date - End Date</span>
+                </div>
+                <div class="company">Company Name</div>
+                <ul class="experience-details">
+                  <li>Responsibility or achievement</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section class="resume-section">
+            <h3>Education</h3>
+            <div class="section-content" id="resume-education">
+              <div class="education-entry">
+                <h4>Degree Name</h4>
+                <div class="institution">Institution Name</div>
+                <div class="date">Start Date - End Date</div>
+              </div>
+            </div>
+          </section>
+
+          <section class="resume-section">
+            <h3>Skills</h3>
+            <div class="section-content">
+              <div id="resume-skills" class="skills-container">
+                <!-- Skills will be added here dynamically -->
+              </div>
+            </div>
+          </section>
+        </article>
+      </section>
+    </main>
+  </section>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>ResuCanvas</h3>
+          <p>Create professional resumes in minutes with our free online resume builder.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="templates.html">Templates</a></li>
+            <li><a href="index.html#features">Features</a></li>
+            <li><a href="index.html#about">About</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2023 ResuCanvas. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="./js/state.js"></script>
+  <script type="module" src="./js/validate.js"></script>
+  <script type="module" src="./js/components.js"></script>
+  <script type="module" src="./js/progress.js"></script>
+  <script type="module" src="./js/bindings.js"></script>
+  <script type="module" src="./js/pdf.js"></script>
+  <script type="module">
+    // Initialize the resume builder
+    document.addEventListener('DOMContentLoaded', function() {
+      // This will be initialized by the components.js and bindings.js
+      console.log('Resume builder initialized');
+    });
+  </script>
+</body>
+</html>

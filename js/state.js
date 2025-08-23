@@ -2,8 +2,13 @@
 
 const initialState = {
   name: "",
+  title: "",
   email: "",
   phone: "",
+  location: "",
+  website: "",
+  linkedin: "",
+  github: "",
   summary: "",
   skills: [],
   education: [],

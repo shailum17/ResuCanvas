@@ -1,0 +1,184 @@
+/* Builder Page Specific Styles */
+
+/* Layout */
+.builder-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Form Panel */
+.form-panel {
+  background-color: var(--panel);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  overflow-y: auto;
+  max-height: calc(100vh - 120px);
+}
+
+/* Preview Panel */
+.preview-panel {
+  background-color: var(--panel);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  overflow-y: auto;
+  max-height: calc(100vh - 120px);
+  position: sticky;
+  top: 1rem;
+}
+
+/* Progress Bar */
+.progress-container {
+  margin-bottom: 1.5rem;
+  background-color: #f3f4f6;
+  border-radius: 999px;
+  height: 8px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: var(--accent);
+  transition: width 0.3s ease;
+}
+
+/* Collapsible Sections */
+.collapsible .group-head {
+  cursor: pointer;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.collapsible .content {
+  padding: 1rem 0;
+  display: block;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.collapsible.collapsed .content {
+  max-height: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.collapsible .chev {
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+.collapsible.collapsed .chev {
+  transform: rotate(-90deg);
+}
+
+/* Skills Tags */
+#skills-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.skill-tag {
+  background-color: #eef2ff;
+  color: var(--accent);
+  padding: 0.5rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.skill-tag button {
+  background: none;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 0;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .builder-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .preview-panel {
+    position: relative;
+    top: 0;
+  }
+}
+
+/* Animations */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card-appear {
+  animation: fade-in-up 0.3s ease-out;
+}
+
+/* Theme Selector */
+.theme-selector {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.theme-option {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-small);
+  border: 2px solid var(--border);
+  cursor: pointer;
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+}
+
+.theme-option.active {
+  border-color: var(--accent);
+}
+
+.theme-option:hover {
+  border-color: var(--accent);
+  opacity: 0.9;
+}
+
+/* Export Options */
+.export-options {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.export-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  border-radius: var(--radius-small);
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.export-btn:hover {
+  background-color: #4a6fd6;
+}

@@ -6,46 +6,119 @@ const byId = (id) => document.getElementById(id);
 const html = (strings, ...values) => strings.map((s, i) => s + (values[i] ?? "")).join("");
 
 export function renderPreviewContact() {
-  byId("pv-name").textContent = state.name || "Your Name";
-  const contact = [state.email, state.phone].filter(Boolean).join(" • ");
-  byId("pv-contact").textContent = contact || "email • phone";
+  // Update name
+  byId("resume-name").textContent = state.name || "Your Name";
+  
+  // Update job title
+  byId("resume-title").textContent = state.title || "Professional Title";
+  
+  // Update contact info
+  if (state.email) {
+    const emailEl = byId("resume-email");
+    if (emailEl) {
+      emailEl.querySelector("span:last-child").textContent = state.email;
+      emailEl.style.display = "flex";
+    }
+  }
+  
+  if (state.phone) {
+    const phoneEl = byId("resume-phone");
+    if (phoneEl) {
+      phoneEl.querySelector("span:last-child").textContent = state.phone;
+      phoneEl.style.display = "flex";
+    }
+  }
+  
+  // Update location if available
+  const locationEl = byId("resume-location");
+  if (locationEl) {
+    if (state.location) {
+      locationEl.querySelector("span:last-child").textContent = state.location;
+      locationEl.style.display = "flex";
+    } else {
+      locationEl.style.display = "none";
+    }
+  }
+  
+  // Update website if available
+  const websiteEl = byId("resume-website");
+  if (websiteEl) {
+    if (state.website) {
+      websiteEl.querySelector("span:last-child").textContent = state.website;
+      websiteEl.style.display = "flex";
+    } else {
+      websiteEl.style.display = "none";
+    }
+  }
+  
+  // Update LinkedIn if available
+  const linkedinEl = byId("resume-linkedin");
+  if (linkedinEl) {
+    if (state.linkedin) {
+      linkedinEl.querySelector("span:last-child").textContent = state.linkedin;
+      linkedinEl.style.display = "flex";
+    } else {
+      linkedinEl.style.display = "none";
+    }
+  }
+  
+  // Update GitHub if available
+  const githubEl = byId("resume-github");
+  if (githubEl) {
+    if (state.github) {
+      githubEl.querySelector("span:last-child").textContent = state.github;
+      githubEl.style.display = "flex";
+    } else {
+      githubEl.style.display = "none";
+    }
+  }
 }
 
 export function renderPreviewSummary() {
-  byId("pv-summary").textContent = state.summary || "A short professional summary appears here.";
+  byId("resume-summary").textContent = state.summary || "A brief professional summary highlighting your experience, skills, and career goals.";
 }
 
 export function drawPreviewSkills() {
-  byId("pv-skills").innerHTML = state.skills.length
-    ? state.skills.map((s) => `<li>${escapeHtml(s)}</li>`).join("")
-    : `<li>—</li>`;
+  byId("resume-skills").innerHTML = state.skills.length
+    ? state.skills.map((s) => `<span class="skill-tag">${escapeHtml(s)}</span>`).join("")
+    : `<span class="skill-tag">Add skills in the form</span>`;
 }
 
 export function renderPreviewEducation() {
-  const root = byId("pv-education");
+  const root = byId("resume-education");
   root.innerHTML = state.education.length
     ? state.education.map((e) => educationItem(e)).join("")
-    : `<em>No education added yet.</em>`;
+    : `<div class="education-entry">
+         <h4>Degree Name</h4>
+         <div class="institution">Institution Name</div>
+         <div class="date">Start Date - End Date</div>
+       </div>`;
 }
 
 export function renderPreviewExperience() {
-  const root = byId("pv-experience");
+  const root = byId("resume-experience");
   root.innerHTML = state.experience.length
     ? state.experience.map((e) => experienceItem(e)).join("")
-    : `<em>No experience added yet.</em>`;
+    : `<div class="experience-entry">
+         <div class="experience-header">
+           <h4>Job Title</h4>
+           <span class="date">Start Date - End Date</span>
+         </div>
+         <div class="company">Company Name</div>
+         <ul class="experience-details">
+           <li>Responsibility or achievement</li>
+         </ul>
+       </div>`;
 }
 
 function educationItem(e) {
   const when = [e.start, e.end].filter(Boolean).join(" – ");
   return html`
-    <div class="row">
-      <div class="left">
-        <strong>${escapeHtml(e.degree || "")}</strong><br/>
-        <span>${escapeHtml(e.school || "")}</span>
-      </div>
-      <div class="right">${escapeHtml(when)}</div>
-      <div class="sub">${escapeHtml(e.location || "")}</div>
-      ${e.details ? `<ul><li>${escapeHtml(e.details)}</li></ul>` : ""}
+    <div class="education-entry">
+      <h4>${escapeHtml(e.degree || "Degree Name")}</h4>
+      <div class="institution">${escapeHtml(e.school || "Institution Name")}</div>
+      <div class="date">${escapeHtml(when || "Start Date - End Date")}</div>
+      ${e.details ? `<div class="details">${escapeHtml(e.details)}</div>` : ""}
     </div>`;
 }
 
@@ -53,14 +126,20 @@ function experienceItem(e) {
   const when = [e.start, e.end].filter(Boolean).join(" – ");
   const bullets = (e.bullets || []).filter(Boolean);
   return html`
-    <div class="row">
-      <div class="left">
-        <strong>${escapeHtml(e.role || "")}</strong><br/>
-        <span>${escapeHtml(e.company || "")}</span>
+    <div class="experience-entry">
+      <div class="experience-header">
+        <h4>${escapeHtml(e.role || "Job Title")}</h4>
+        <span class="date">${escapeHtml(when || "Start Date - End Date")}</span>
       </div>
-      <div class="right">${escapeHtml(when)}</div>
-      <div class="sub">${escapeHtml(e.location || "")}</div>
-      ${bullets.length ? `<ul>${bullets.map((b) => `<li>${escapeHtml(b)}</li>`).join("")}</ul>` : ""}
+      <div class="company">${escapeHtml(e.company || "Company Name")}</div>
+      ${bullets.length ? `
+        <ul class="experience-details">
+          ${bullets.map((b) => `<li>${escapeHtml(b)}</li>`).join("")}
+        </ul>` : 
+        `<ul class="experience-details">
+          <li>Responsibility or achievement</li>
+        </ul>`
+      }
     </div>`;
 }
 
@@ -155,24 +234,35 @@ export function renderExpRow(item) {
 }
 
 export function drawChips() {
-  const entry = byId("skill-entry");
-  const chipBox = byId("skills-input");
+  const chipBox = byId("skills-tags");
+  if (!chipBox) return; // Guard against null element
   chipBox.innerHTML = "";
   state.skills.forEach((s, i) => {
     const chip = document.createElement("button");
     chip.type = "button";
-    chip.className = "chip";
-    chip.textContent = s;
-    chip.title = "Remove";
+    chip.className = "skill-tag";
+    chip.innerHTML = s + '<button aria-label="Remove skill">&times;</button>';
     chip.setAttribute("role", "option");
     chip.setAttribute("tabindex", "0");
     chip.style.animation = 'fade-in-up .2s ease-out';
+    
+    const removeBtn = chip.querySelector('button');
+    if (removeBtn) {
+      removeBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        state.skills.splice(i, 1);
+        drawChips();
+        drawPreviewSkills();
+        persistState();
+      });
+    }
+    
+    // Keep the whole tag clickable as a fallback
     chip.addEventListener("click", () => {
       state.skills.splice(i, 1);
       drawChips();
       drawPreviewSkills();
       persistState();
-      entry.focus();
     });
     chip.addEventListener("keydown", (e) => {
       if (e.key === "Delete" || e.key === "Backspace") {
